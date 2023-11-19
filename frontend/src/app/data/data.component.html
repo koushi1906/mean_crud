@@ -1,0 +1,40 @@
+<div class="mt-4">
+  <h2 class="text-center font-bold text-xl mb-4">Visitor Data</h2>
+  <div class="overflow-x-auto">
+    <table class="w-full border-collapse border border-gray-300">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="py-2 px-4 border-b">First Name</th>
+          <th class="py-2 px-4 border-b">Last Name</th>
+          <th class="py-2 px-4 border-b">Email</th>
+          <th class="py-2 px-4 border-b">Phone</th>
+          <th class="py-2 px-4 border-b">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b" *ngFor="let user of visitors">
+          <td class="py-2 px-4 text-center">{{ user.first_name }}</td>
+          <td class="py-2 px-4 text-center">{{ user.last_name }}</td>
+          <td class="py-2 px-4 text-center">{{ user.email }}</td>
+          <td class="py-2 px-4 text-center">{{ user.phone }}</td>
+          <td class="py-2 px-4 text-center">
+            <div class="flex justify-center space-x-2">
+              <button
+                class="bg-blue-500 text-white px-2 py-1 rounded"
+                (click)="editVisitor(user._id)"
+              >
+                Edit
+              </button>
+              <button
+                class="bg-red-500 text-white px-2 py-1 rounded"
+                (click)="deleteVisitor(user._id)"
+              >
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
